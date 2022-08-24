@@ -7,7 +7,7 @@ import './App.css';
 function App() {
 
   let post = '강남 우동 맛집';
-  let [name, setName] = useState(['남자 코트 추천','강남 우동맛집','파이썬 독학']);
+  let [글제목, 글제목변경] = useState(['남자 코트 추천','강남 우동맛집','파이썬 독학','빵집']);
   let [good, setGood] = useState(0);
 
   return (
@@ -15,16 +15,30 @@ function App() {
       <div className="black-nav">
         <h4>블로그임</h4>
       </div>
+
+      <button onClick={
+        ()=>{
+          
+        }
+      }>가나다순 정렬</button>
+
+      <button onClick={ ()=>{
+        let copy = [...글제목];
+        copy[0] = copy[3];
+        글제목변경(copy);
+      } }>수정 버튼</button>
+
+
       <div className="list">
-        <h4>{ name[0] } <span onClick={ () => { setGood( good + 1 ) } }>👍🏼</span> { good } </h4>
+        <h4>{ 글제목[0] } <span onClick={ () => { setGood( good + 1 ) } }>👍🏼</span> { good } </h4>
         <p>8월 23일 발행</p>
       </div>
       <div className="list">
-        <h4>{ name[1] } <button onClick={ ()=>{ setName('야') } }>첫번째 제목 변경</button></h4>
+        <h4>{ 글제목[1] }</h4>
         <p>8월 23일 발행</p>
       </div>
       <div className="list">
-        <h4>{ name[2] }</h4>
+        <h4>{ 글제목[2] }</h4>
         <p>8월 23일 발행</p>
       </div>
     </div>
