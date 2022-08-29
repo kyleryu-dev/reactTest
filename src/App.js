@@ -9,6 +9,7 @@ function App() {
   let post = '강남 우동 맛집';
   let [글제목, 글제목변경] = useState(['남자 코트 추천','강남 우동맛집','파이썬 독학','하늘']);
   let [good, setGood] = useState(0);
+  let [modal, setModal] = useState(false);
 
   return (
     <div className="App">
@@ -32,6 +33,12 @@ function App() {
         } 
       }>수정 버튼</button>
 
+      <button onClick={
+        ()=>{
+          modal == false ? setModal(true) : setModal(false)
+        }
+      }>모달창</button>
+
 
       <div className="list">
         <h4>{ 글제목[0] } <span onClick={ () => { setGood( good + 1 ) } }>👍🏼</span> { good } </h4>
@@ -45,6 +52,21 @@ function App() {
         <h4>{ 글제목[2] }</h4>
         <p>8월 23일 발행</p>
       </div>
+      {
+        modal == true ? <ModalTest></ModalTest> : null
+      }
+    </div>
+    /* //div-app */
+  );
+}
+/* //function-app */
+
+function ModalTest() {
+  return(
+    <div className="modal">
+      <h4>제목</h4>
+      <p>날짜</p>
+      <p>내용</p>
     </div>
   );
 }
